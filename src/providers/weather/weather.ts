@@ -13,8 +13,7 @@ export class WeatherProvider {
   url;
 
   constructor(public http: HttpClient) {
-    console.log('Hello WeatherProvider Provider');
-    this.url =  "https://02435131.ngrok.io/forecast";
+    this.url =  "http://localhost:8080/forecast";
   }
 
   getWeather(){

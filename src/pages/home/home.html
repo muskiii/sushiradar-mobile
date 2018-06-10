@@ -5,23 +5,27 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <ion-grid *ngIf="weather">
+  <ion-grid *ngIf="weather" >
     <ion-row>
       <ion-col width-50 offset-25>
         <h2 class="loaction">{{weather.country}}</h2>
         <h2 class="city">{{weather.city}}</h2>
-
-        <div class="icon"><img src="{{weather.icon_url}}"></div>
-        <h3 class="desc">{{weather.weather}}</h3>
-        <h1 class="temp">{{weather.temp_f}}&deg;</h1>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col width-100>
-        <ion-list>
-          <strong>Temp: </strong>{{weather.temperature_string}}
-        </ion-list>
-      </ion-col>
-    </ion-row>
+    <ion-grid  *ngFor="let extended of weather.extended">
+      <ion-row>
+        <ion-col width-100>
+          <h3 class="desc">{{extended.weekday}}</h3>
+          <div class="icon"><img src="{{extended.iconURL}}"></div>
+          <h3 class="desc">{{extended.conditions}}</h3>
+          <ion-list>
+            <strong>High Temp: </strong>{{extended.highT}}&deg;
+          </ion-list>
+          <ion-list>
+            <strong>Low Temp: </strong>{{extended.highT}}&deg;
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-grid>
 </ion-content>

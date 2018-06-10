@@ -14,7 +14,7 @@ export class AboutPage {
   ]).subscribe(
     (values) => {
       console.log('Loaded values', values);
-      this.content = 
+      this.content =
         {
           appName: values.APP_NAME,
           description: values.DESCRIPTION,

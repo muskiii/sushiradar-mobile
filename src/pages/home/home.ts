@@ -7,13 +7,14 @@ import { WeatherProvider } from '../../providers/weather/weather';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  weather:any;
 
   constructor(public navCtrl: NavController, private watherProvider:WeatherProvider) {
     this.refresh();
   }
 
   refresh(){
-    this.watherProvider.getWeather().subscribe(weather => {console.log(weather)});
+    this.watherProvider.getWeather().subscribe(weather => console.log(weather));
   }
 
 }

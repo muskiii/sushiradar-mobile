@@ -76,8 +76,8 @@ $tabs-md-tab-color-active: color($colors,light);
 $tabs-md-tab-color: color($colors,light);
 $tabs-md-tab-text-color: color($colors,light);
 
-$list-md-background-color: color($colors,secondary);
-$list-md-text-color: color($colors,light);
+$list-md-background-color: white;
+$list-md-text-color: color($colors,dark);
 
 @import "ionic.theme.default";
 

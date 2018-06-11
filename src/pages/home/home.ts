@@ -13,9 +13,14 @@ export class HomePage {
   source:any;
   loading: any;
   addSource : boolean;
-
   constructor(public navCtrl: NavController, private watherProvider:WeatherProvider,private loadingController:LoadingController) {
     this.addSource = false;
+    this.refresh();
+  }
+
+  Add(input){
+    console.log('input',input)
+    this.source=input;
     this.refresh();
   }
 
@@ -30,7 +35,6 @@ export class HomePage {
       content: "Please wait..."
     })
     this.loading.present();
-
     this.watherProvider.getWeather(this.source).finally(() => {
     })
       .subscribe (

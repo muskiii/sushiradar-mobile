@@ -13,7 +13,6 @@ export class WeatherProvider {
   url;
 
   constructor(public http: HttpClient) {
-    // this.url =  "";
     this.url = "https://sushiradar.herokuapp.com/forecast";
   }
 

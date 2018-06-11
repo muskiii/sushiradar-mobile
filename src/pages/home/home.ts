@@ -24,12 +24,6 @@ export class HomePage {
     this.refresh();
   }
 
-  Add(input){
-    console.log('input',input)
-    this.source=input;
-    this.refresh();
-  }
-
   refresh(){
     this.loading = this.loadingController.create({
       content: "Please wait..."

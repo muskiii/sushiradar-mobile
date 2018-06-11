@@ -9,17 +9,24 @@ import 'rxjs/add/operator/finally';
 })
 export class HomePage {
   weather:any;
+  source:any;
 
   constructor(public navCtrl: NavController, private watherProvider:WeatherProvider) {
     this.refresh();
   }
 
+  Add(input){
+    console.log('input',input)
+    this.source=input;
+    this.refresh();
+  }
+
   refresh(){
-    this.watherProvider.getWeather().finally(() => {
+    this.watherProvider.getWeather(this.source).finally(() => {
     })
       .subscribe (
         result => {
-          console.log(result[0]);
+          console.log(result);
           this.weather = result[0];
         },
         error => {

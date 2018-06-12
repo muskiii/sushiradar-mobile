@@ -9,7 +9,7 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  weather:any;
+  subscription:any;
   source:any;
   loading: any;
   addSource : boolean;
@@ -18,9 +18,14 @@ export class HomePage {
     this.refresh();
   }
 
-  Add(input){
+  add(input){
     console.log('input',input)
-    this.source=input;
+    this.source = input;
+    this.refresh();
+  }
+  reset(){
+    this.subscription = [];
+    this.source = "";
     this.refresh();
   }
 
@@ -34,7 +39,8 @@ export class HomePage {
       .subscribe (
         result => {
           console.log(result);
-          this.weather = result[0];
+          this.subscription = result;
+          this.addSource = false;
         },
         error => {
           this.addSource = true;

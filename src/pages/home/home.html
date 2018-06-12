@@ -5,45 +5,51 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <ion-grid *ngIf="weather">
-    <ion-row>
-      <ion-col width-50 offset-25>
-        <h2 class="loaction">{{weather.country}}</h2>
-        <h2 class="city">{{weather.city}}</h2>
-      </ion-col>
-    </ion-row>
-    <ion-grid *ngFor="let extended of weather.extended">
+  <!--<ng-template *ngIf="subscription" >-->
+    <ion-grid *ngFor="let weather of subscription">
       <ion-row>
-        <ion-col width-100>
-          <h3 class="desc">{{extended.weekday}}</h3>
-          <div class="icon"><img src="{{extended.iconURL}}"></div>
-          <h3 class="desc">{{extended.conditions}}</h3>
-          <ion-list>
-            <ion-item>
-              <strong>High Temp: </strong>{{extended.highT}}&deg;
-            </ion-item>
-            <ion-item>
-              <strong>Low Temp: </strong>{{extended.highT}}&deg;
-            </ion-item>
-            <ion-item>
-              <strong>Humidity: </strong>{{extended.aveHumidity}}%
-            </ion-item>
-            <ion-item>
-              <strong>Wind Direction: </strong>{{extended.aveWindDir}}
-            </ion-item>
-            <ion-item>
-              <strong>Wind speed: </strong>{{extended.aveWindKPH}} KPH
-            </ion-item>
-          </ion-list>
+        <ion-col width-50 offset-25>
+          <h2 class="loaction">{{weather.country}}</h2>
+          <h2 class="city">{{weather.city}}</h2>
         </ion-col>
       </ion-row>
+      <ion-grid *ngFor="let extended of weather.extended">
+        <ion-row>
+          <ion-col width-100>
+            <h3 class="desc">{{extended.weekday}}</h3>
+            <div class="icon"><img src="{{extended.iconURL}}"></div>
+            <h3 class="desc">{{extended.conditions}}</h3>
+            <ion-list>
+              <ion-item>
+                <strong>High Temp: </strong>{{extended.highT}}&deg;
+              </ion-item>
+              <ion-item>
+                <strong>Low Temp: </strong>{{extended.highT}}&deg;
+              </ion-item>
+              <ion-item>
+                <strong>Humidity: </strong>{{extended.aveHumidity}}%
+              </ion-item>
+              <ion-item>
+                <strong>Wind Direction: </strong>{{extended.aveWindDir}}
+              </ion-item>
+              <ion-item>
+                <strong>Wind speed: </strong>{{extended.aveWindKPH}} KPH
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-grid>
+  <ion-grid>
+    <button ion-button (click)="reset()">Reset</button>
   </ion-grid>
+
+  <!--</ng-template>-->
   <ion-grid *ngIf="addSource">
     <ion-item>
       <ion-label color="primary">Add Source</ion-label>
       <ion-input type="text" text-right [(ngModel)]="source"></ion-input>
     </ion-item>
-    <button ion-button  (click)="Add(source)">Add</button>
+    <button ion-button (click)="add(source)">Add</button>
   </ion-grid>
 </ion-content>
